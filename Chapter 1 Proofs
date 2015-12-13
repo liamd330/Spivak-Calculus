@@ -1,0 +1,52 @@
+;;Chapter 1 Proofs
+
+(define associative-law-for-addition (lambda (a b c)
+  (if (= (+ (+ a b) c) (+ a (+ b c))) #t #f)))
+  
+(define existence-of-an-additive-identity (lambda (a)
+  (if (= (+ a 0) a) #t #f)))
+  
+(define existence-of-additive-inverse (lambda (a)
+  (if (= (+ a (- 0 a)) 0) #t #f)))
+  
+(define commutative-law-for-addition (lambda (a b)
+  (if (= (+ a b) (+ b a)) #t #f)))
+  
+(define existence-of-a-multiplicative-identity (lambda (a)
+  (if (= a 0) 'nice-try-not-true-for-zero
+    (if (= (* a 1) a) #t #f))))
+    
+(define existence-of-multiplicative-inverses (lambda (a)
+  (if (= a 0) 'not-true-for-zero
+    (if (= 1 (* a (/ 1 a))) #t #f))))
+    
+(define commutative-law-for-multiplication (lambda (a b)
+  (if (= (* a b) (* b a)) #t #f)))
+  
+(define distributive-law (lambda (a b c)
+  (if (= (* a (* b c)) (* (* a b) c)) #t #f)))
+  
+(define positive? (lambda (a)
+  (if (> a 0) #t #f)))
+
+(define negative? (lambda (a)
+  (if (< a 0) #t #f)))
+  
+(define trichotomy-law (lambda (a)
+  (cond ((= a 0) #t)
+        ((positive? a) #t)
+        ((positive? (- 0 a)) #t))))
+        
+(define closure-under-addition (lambda (a b)
+  (if (or (not (positive? a)) (not (positive? b))) 'not-in-P
+    (if (eq? (and (positive? a) (positive? b)) (positive? (+ a b))) #t #f))))
+  
+(define closure-under-multiplication (lambda (a b)
+  (if (or (not (positive? a)) (not (positive? b))) 'not-in-P
+  (if (eq? (and (positive? a) (positive? b)) (positive? (* a b))) #t #f))))
+  
+  
+  
+  
+  
+  
