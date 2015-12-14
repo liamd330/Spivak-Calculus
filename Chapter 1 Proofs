@@ -24,7 +24,7 @@
   (if (= (* a b) (* b a)) #t #f)))
   
 (define distributive-law (lambda (a b c)
-  (if (= (* a (* b c)) (* (* a b) c)) #t #f)))
+  (if (= (* a (+ b c)) (+ (* a b) (* a c))) #t #f)))
   
 (define positive? (lambda (a)
   (if (> a 0) #t #f)))
@@ -44,9 +44,3 @@
 (define closure-under-multiplication (lambda (a b)
   (if (or (not (positive? a)) (not (positive? b))) 'not-in-P
   (if (eq? (and (positive? a) (positive? b)) (positive? (* a b))) #t #f))))
-  
-  
-  
-  
-  
-  
